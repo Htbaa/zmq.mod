@@ -29,6 +29,7 @@ Rem
 EndRem
 Module htbaapub.zmq
 ModuleInfo "Name: htbaapub.zmq"
+ModuleInfo "Description: A wrapper for ZeroMQ"
 ModuleInfo "Version: 0.01"
 ModuleInfo "License: MIT"
 ModuleInfo "Author: Christiaan Kras"
