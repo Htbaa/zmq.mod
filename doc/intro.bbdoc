@@ -1,0 +1,35 @@
+<h1>ZeroMQ module</h1>
+
+<p>This module wraps the ZeroMQ API
+(see <a href="http://api.zeromq.org/" target="_blank">api.zeromq.org</a>) up
+in a handful of BlitzMax Types.</p>
+
+<p>From the <a href="http://www.zeromq.org" target="_blank">ZeroMQ Website</a>:
+</p>
+<ul>
+    <li>The socket library that acts as a concurrency framework.</li>
+    <li>Faster than TCP, for clustered products and supercomputing.</li>
+    <li>Carries messages across inproc, IPC, TCP, and multicast.</li>
+    <li>Connect N-to-N via fanout, pubsub, pipeline, request-reply.</li>
+    <li>Asynch I/O for scalable multicore message-passing apps.</li>
+    <li>Large and active open source community.</li>
+    <li>30+ languages including C, C++, Java, .NET, Python.</li>
+    <li>Most OSes including Linux, Windows, OS X.</li>
+    <li>LGPL free software with full commercial support from iMatix.</li>
+</ul>
+
+<h2>Getting Started</h2>
+<h3>Windows</h3>
+<p>Get the <em>libzmq.dll</em> from the <em>./zeromq/bin/</em> and put it in
+your project directory.</p>
+
+<h3>Linux</h3>
+<p>On Ubuntu or Debian you've got to install the libzmq packages:
+    <em>sudo apt-get install libzmq-dev</em>.</p>
+
+<h2>Examples</h2>
+<p>Please take a look at one of the examples below.</p>
+<ul>
+	<li><a href="../examples/example1.bmx">example1.bmx</a> An example of one
+	PUBLISHER socket and several SUBSCRIBERS</li>
+</ul>
