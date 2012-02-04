@@ -33,3 +33,11 @@ your project directory.</p>
 	<li><a href="../examples/example1.bmx">example1.bmx</a> An example of one
 	PUBLISHER socket and several SUBSCRIBERS</li>
 </ul>
+
+<h2>Known Issues</h2>
+<ul>
+	<li>On 64-bit (Linux) BlitzMax requires a 32-bit compiled module. In the
+    case of Ubuntu only a 64-bit package is being provided. So far I haven't
+    found out yet how to let BlitzMax, in a flexible way, know where to find
+    my custom compiled ZeroMQ library.</li>
+</ul>

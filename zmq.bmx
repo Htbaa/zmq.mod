@@ -24,6 +24,8 @@ SuperStrict
 
 Rem
 	bbdoc: htbaapub.zmq
+	about: This module is still an early work in progress. If you run into any
+	bugs please report them at <a href='https://github.com/Htbaa/zmq.mod/issues'>https://github.com/Htbaa/zmq.mod/issues</a>.
 EndRem
 Module htbaapub.zmq
 ModuleInfo "Name: htbaapub.zmq"
@@ -33,6 +35,7 @@ ModuleInfo "Author: Christiaan Kras"
 ModuleInfo "ZeroMQ: <a href='http://www.zeromq.org'>http://www.zeromq.org</a>"
 ModuleInfo "ZeroMQ License: LGPL (see contents of ./zeromq)"
 ModuleInfo "Git repository: <a href='https://github.com/Htbaa/zmq.mod/'>https://github.com/Htbaa/zmq.mod/</a>"
+ModuleInfo "Issues: <a href='https://github.com/Htbaa/zmq.mod/issues'>https://github.com/Htbaa/zmq.mod/issues</a>"
 ModuleInfo "History: 0.01"
 ModuleInfo "History: First release of htbaapub.zmq using ZMQ 2.1.11. No support yet for input/output multiplexing with zmq_poll()"
 
