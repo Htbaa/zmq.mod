@@ -1,0 +1,7 @@
+*.o
+*.i
+*.s
+*.a
+*.exe
+*.bmx.bak
+doc/commands.html
