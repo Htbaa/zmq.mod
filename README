@@ -1,0 +1,5 @@
+This module wraps up ZeroMQ (http://www.zeromq.org) and provides a number of
+basic Types for easy interaction with ZeroMQ and BlitzMax. The raw ZeroMQ API
+is available as well.
+
+This module is released under a MIT License.
