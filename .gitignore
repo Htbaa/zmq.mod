@@ -5,3 +5,4 @@
 *.exe
 *.bmx.bak
 doc/commands.html
+!/zeromq/lib/*.a
