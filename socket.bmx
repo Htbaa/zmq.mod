@@ -115,6 +115,7 @@ Type TZMQ_Socket
 			Local content:String = String(message)
 			Local msg:TZMQ_Message = New TZMQ_Message.Create(content)
 			rc = Self.Send(msg, flags)
+			msg.Close()
 		End If
 		
 		If rc = -1 Then Throw New TZMQ_Exception
