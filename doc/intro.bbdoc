@@ -28,10 +28,15 @@ your project directory.</p>
     <em>sudo apt-get install libzmq-dev</em>.</p>
 
 <h2>Examples</h2>
-<p>Please take a look at one of the examples below.</p>
+<p>Please take a look at one of the examples below. Most of these examples come from <a href="http://zguide.zeromq.org/page:all" target="_blank">zguide.zeromq.org</a>
+but have been ported to BlitzMax.</p>
 <ul>
-	<li><a href="../examples/example1.bmx">example1.bmx</a> An example of one
+	<li><a href="../examples/example1.bmx">example1.bmx</a> - An example of one
 	PUBLISHER socket and several SUBSCRIBERS</li>
+	<li><a href="../examples/hwserver.bmx">hwserver.bmx</a> - Hello World server</li>
+	<li><a href="../examples/hwclient.bmx">hwsclient.bmx</a> - Hello World client</li>
+	<li><a href="../examples/wuserver.bmx">wuserver.bmx</a> - Weather Update server</li>
+	<li><a href="../examples/wuclient.bmx">wuclient.bmx</a> - Weather Update client</li>
 </ul>
 
 <h2>Known Issues</h2>
