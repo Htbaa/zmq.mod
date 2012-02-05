@@ -27,6 +27,13 @@ zmq_msg_t * bmx_zmq_message_t() {
 	return msg;	
 }
 
+void bmx_zmq_free(zmq_msg_t *msg) {
+	if(msg) {
+		free(msg);
+		msg = NULL;
+	}
+}
+
 zmq_msg_t * bmx_zmq_new_message(const char *string) {
 	int length = strlen(string);
 	zmq_msg_t *msg;

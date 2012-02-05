@@ -37,6 +37,7 @@ ModuleInfo "ZeroMQ: <a href='http://www.zeromq.org'>http://www.zeromq.org</a>"
 ModuleInfo "ZeroMQ License: LGPL (see contents of ./zeromq)"
 ModuleInfo "Git repository: <a href='https://github.com/Htbaa/zmq.mod/'>https://github.com/Htbaa/zmq.mod/</a>"
 ModuleInfo "Issues: <a href='https://github.com/Htbaa/zmq.mod/issues'>https://github.com/Htbaa/zmq.mod/issues</a>"
+ModuleInfo "History: TZMQ_Message.Close() now properly frees up memory"
 ModuleInfo "History: 0.01"
 ModuleInfo "History: First release of htbaapub.zmq using ZMQ 2.1.11. No support yet for input/output multiplexing with zmq_poll()"
 
@@ -67,6 +68,11 @@ Extern "C"
 		returns: Returns a pointer to a new zmq_message_t struct with given data
 	End Rem
 	Function bmx_zmq_new_message:Byte Ptr(str$z)
+	
+	Rem
+		bbdoc: Alias for free(), for cleaning up data structures
+	End Rem
+	Function bmx_zmq_free(msg:Byte Ptr)
 End Extern
 
 'ZeroMQ functions

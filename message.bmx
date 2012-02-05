@@ -65,7 +65,11 @@ Type TZMQ_Message
 		about: Release ZMQ message
 	End Rem
 	Method Close()
-		zmq_msg_close(Self.message)
+		If Self.message = Null Then Return
+		Local rc:Int = zmq_msg_close(Self.message)
+		If rc = -1 Then Throw New TZMQ_Exception
+		bmx_zmq_free(Self.message)
+		Self.message = Null
 	End Method
 	
 	Rem
