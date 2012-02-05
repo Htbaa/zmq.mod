@@ -89,7 +89,7 @@ Type TZMQ_Socket
 		about: Throws a TZMQ_Exception on errors
 	End Rem
 	Method SetSockOpt(socket_option:Int, value:String)
-		Local rc:Int = zmq_setsockopt(Self.socket, socket_option, value, 0)
+		Local rc:Int = zmq_setsockopt(Self.socket, socket_option, value, value.Length)
 		If rc = -1 Then Throw New TZMQ_Exception
 	End Method
 
