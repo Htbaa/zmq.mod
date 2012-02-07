@@ -19,7 +19,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+#ifdef WIN32
 #include "zeromq/include/zmq.h"
+#else
+#include <zmq.h>
+#endif
 
 zmq_msg_t * bmx_zmq_message_t() {
 	zmq_msg_t *msg;
