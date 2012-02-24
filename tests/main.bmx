@@ -17,6 +17,7 @@ Type TZMQ_Test Extends TTest
 		assertTrue(parts.Length = 3, "Version string contains 3 parts")
 	End Method
 	
+	'Make sure recreating an existing context
 	Method ContextReCreate() {test}
 		Local ct:TZMQ_Context = New TZMQ_Context.Create()
 		Try
@@ -29,14 +30,17 @@ Type TZMQ_Test Extends TTest
 		ct.Term()
 	End Method
 
+	'Make sure a socket can be created
 	Method SocketCreate() {test}
 		Local ct:TZMQ_Context = New TZMQ_Context.Create()
 		Local socket:TZMQ_Socket = ct.socket(ZMQ_PUB)
 		assertNotNull(socket, "Created socket")
+		assertTrue(socket.socket <> Null, "Created pointer to socket")
 		socket.Close()
 		ct.Term()
 	End Method
 
+	'Make sure created messages contain expected data
 	Method MessageCreationIntegrity() {test}
 		For Local i:Int = 0 To 1000
 			Local text:String = "Message " + i
@@ -47,6 +51,7 @@ Type TZMQ_Test Extends TTest
 		Next
 	End Method
 	
+	'Make sure exchanged messages aren't corrupt
 	Method MessageExchangingIntegrity() {test}
 		Local addr:String = "tcp://127.0.0.1:6000"
 		Local ct:TZMQ_Context = New TZMQ_Context.Create()
@@ -62,6 +67,7 @@ Type TZMQ_Test Extends TTest
 			Local text:String = "Message " + i
 			publisher.Send(text)
 			Local msg:TZMQ_Message = subscriber.Recv()
+			If msg = Null Then msg.Close() ; Continue
 			assertEquals(text, msg.ToString(), "Message " + i + " match")
 			assertEqualsI(text.Length, msg.Size(), "Message " + i + " size match")
 			msg.Close()
