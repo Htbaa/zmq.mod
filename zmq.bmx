@@ -98,7 +98,7 @@ Extern
 	Function zmq_bind(s:Byte Ptr, addr$z)
 	Function zmq_connect:Int(s:Byte Ptr, addr$z)
 	Function zmq_send:Int(s:Byte Ptr, msg:Byte Ptr, flags:Int)
-	Function zmq_recv:Int(s:Byte Ptr, msg:Byte Ptr, flags:Int)	
+	Function zmq_recv:Int(s:Byte Ptr, msg:Byte Ptr, flags:Int)
 
 	Function zmq_msg_init:Int(msg:Byte Ptr)
 	Function zmq_msg_init_size:Int(msg:Byte Ptr, size:Long)
