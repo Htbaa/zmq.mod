@@ -67,7 +67,7 @@ Type TZMQ_Test Extends TTest
 			Local text:String = "Message " + i
 			publisher.Send(text)
 			Local msg:TZMQ_Message = subscriber.Recv()
-			If msg = Null Then msg.Close() ; Continue
+			If msg = Null Then Continue
 			assertEquals(text, msg.ToString(), "Message " + i + " match")
 			assertEqualsI(text.Length, msg.Size(), "Message " + i + " size match")
 			msg.Close()
