@@ -108,17 +108,20 @@ Type TZMQ_Socket
 		or you can pass a TZMQ_Message straight away
 	End Rem
 	Method Send(message:Object, flags:Int = 0)
-		Local rc:Int
 		If TZMQ_Message(message)
-			rc = zmq_send(Self.socket, TZMQ_Message(message).message, flags)
+			Local rc:Int = zmq_send(Self.socket, TZMQ_Message(message).message, flags)
+			If rc = -1 Then Throw New TZMQ_Socket_Exception
 		Else If String(message)
 			Local content:String = String(message)
 			Local msg:TZMQ_Message = New TZMQ_Message.Create(content)
-			rc = Self.Send(msg, flags)
-			msg.Close()
+			Try
+				Self.Send(msg, flags)
+				msg.Close()
+			Catch ex:TZMQ_Socket_Exception
+				msg.Close()
+				Throw ex
+			End Try
 		End If
-		
-		If rc = -1 Then Throw New TZMQ_Exception
 	End Method
 	
 	Rem
