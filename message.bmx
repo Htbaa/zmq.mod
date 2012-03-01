@@ -32,14 +32,31 @@ Type TZMQ_Message
 	Field message:Byte Ptr
 
 	Rem
+		bbdoc: Pointer to the internal message data
+		about: Call @Close() to free data
+	End Rem
+	Field content:Byte Ptr
+
+	Rem
 		bbdoc: Create a ZMQ message
 		returns: TZMQ_Message
 		about: Throws a TZMQ_Exception on errors
 	End Rem
-	Method Create:TZMQ_Message(data:String)
+	Method Create:TZMQ_Message(content:Byte Ptr, length:Int)
 		Self.message = bmx_zmq_message_t()
-		Local rc:Int = zmq_msg_init_data(Self.message, data, data.Length, Null, Null)
-		If rc = -1 Then Throw New TZMQ_Message_Exception
+		Self.content = content
+		Local rc:Int = zmq_msg_init_data(Self.message, Self.content, length, Null, Null)
+		If rc = - 1 Then Throw New TZMQ_Message_Exception
+		Return Self
+	End Method
+
+	Rem
+		bbdoc: Create a ZMQ message from a String
+		returns: TZMQ_Message
+		about: Throws a TZMQ_Exception on errors
+	End Rem
+	Method CreateFromString:TZMQ_Message(content:String)
+		Self.Create(content.ToCString(), content.Length)
 		Return Self
 	End Method
 	
@@ -65,6 +82,8 @@ Type TZMQ_Message
 		about: Release ZMQ message
 	End Rem
 	Method Close()
+		If Self.content <> Null Then MemFree(Self.content)
+		Self.content = Null
 		If Self.message = Null Then Return
 		Local rc:Int = zmq_msg_close(Self.message)
 		If rc = -1 Then Throw New TZMQ_Message_Exception

@@ -44,7 +44,7 @@ Type TZMQ_Test Extends TTest
 	Method MessageCreationIntegrity() {test}
 		For Local i:Int = 0 To 1000
 			Local text:String = "Message " + i
-			Local msg:TZMQ_Message = New TZMQ_Message.Create(text)
+			Local msg:TZMQ_Message = New TZMQ_Message.CreateFromString(text)
 			assertEquals(text, msg.ToString(), "Message text match")
 			assertEqualsI(text.Length, msg.Size(), "Message size match")
 			msg.Close()
@@ -60,9 +60,10 @@ Type TZMQ_Test Extends TTest
 		
 		publisher.Bind(addr)
 		subscriber.Connect(addr)
-		subscriber.SetSockOpt(ZMQ_SUBSCRIBE, Null)
-		
-		For Local i:Int = 0 To 100
+		subscriber.SetSockOpt(ZMQ_SUBSCRIBE , Null)
+
+		Delay 1000
+		For Local i:Int = 0 To 10
 			Delay 10
 			Local text:String = "Message " + i
 			publisher.Send(text)
