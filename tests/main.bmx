@@ -41,13 +41,25 @@ Type TZMQ_Test Extends TTest
 	End Method
 
 	'Make sure created messages contain expected data
-	Method MessageCreationIntegrity() {test}
+	Method MessageCreationFromStringIntegrity() {test}
 		For Local i:Int = 0 To 1000
 			Local text:String = "Message " + i
 			Local msg:TZMQ_Message = New TZMQ_Message.CreateFromString(text)
 			assertEquals(text, msg.ToString(), "Message text match")
 			assertEqualsI(text.Length, msg.Size(), "Message size match")
 			msg.Close()
+		Next
+	End Method
+
+	'Make sure created messages contain expected data
+	Method MessageCreationFromPointerIntegrity() {test}
+		For Local i:Int = 0 To 1000
+			Local text:String = "Message " + i
+			Local msg:TZMQ_Message = New TZMQ_Message.Create(text.ToCString(), text.Length)
+			assertEquals(text, msg.ToString(), "Message text match")
+			assertEqualsI(text.Length, msg.Size(), "Message size match")
+			msg.Close()
+			assertTrue(msg.content = Null, "Message data freed")
 		Next
 	End Method
 	
