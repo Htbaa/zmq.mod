@@ -131,7 +131,7 @@ Type TZMQ_Socket
 	Method Recv:TZMQ_Message(flags:Int = 0)
 		Local msg:Byte Ptr = bmx_zmq_message_t()
 		zmq_msg_init(msg)
-		If zmq_recv(Self.socket, msg, flags) Then Return Null
+		If zmq_recv(Self.socket, msg, flags) = -1 Then Return Null
 		Return New TZMQ_Message.CreateFromMessage(msg)
 	End Method
 End Type
