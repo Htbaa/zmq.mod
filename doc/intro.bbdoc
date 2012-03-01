@@ -39,6 +39,9 @@ but have been ported to BlitzMax.</p>
 	<li><a href="../examples/wuclient.bmx">wuclient.bmx</a> - Weather Update client</li>
 </ul>
 
+<h2>Test Suite</h2>
+<p>This module comes with a set of unit tests which you can find at <a href="../tests/main.bmx">tests/main.bmx</a></p>
+
 <h2>Known Issues</h2>
 <ul>
 	<li>On 64-bit (Linux) BlitzMax requires a 32-bit compiled module. In the
