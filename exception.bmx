@@ -45,3 +45,15 @@ Type TZMQ_Exception
 		Return zmq_strerror(Self.code)
 	End Method
 End Type
+
+Rem
+	bbdoc: Message Exception
+End Rem
+Type TZMQ_Message_Exception Extends TZMQ_Exception
+End Type
+
+Rem
+	bbdoc: Socket Exception
+End Rem
+Type TZMQ_Socket_Exception Extends TZMQ_Exception
+End Type

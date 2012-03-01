@@ -39,7 +39,7 @@ Type TZMQ_Message
 	Method Create:TZMQ_Message(data:String)
 		Self.message = bmx_zmq_message_t()
 		Local rc:Int = zmq_msg_init_data(Self.message, data, data.Length, Null, Null)
-		If rc = -1 Then Throw New TZMQ_Exception
+		If rc = -1 Then Throw New TZMQ_Message_Exception
 		Return Self
 	End Method
 	
@@ -67,7 +67,7 @@ Type TZMQ_Message
 	Method Close()
 		If Self.message = Null Then Return
 		Local rc:Int = zmq_msg_close(Self.message)
-		If rc = -1 Then Throw New TZMQ_Exception
+		If rc = -1 Then Throw New TZMQ_Message_Exception
 		bmx_zmq_free(Self.message)
 		Self.message = Null
 	End Method

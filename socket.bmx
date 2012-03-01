@@ -45,7 +45,7 @@ Type TZMQ_Socket
 		If socket Then Throw "Socket already exists!"
 		Self.context = context
 		Self.socket = zmq_socket(Self.context, socket_type)
-		If Self.socket = Null Then Throw New TZMQ_Exception
+		If Self.socket = Null Then Throw New TZMQ_Socket_Exception
 		Return Self
 	End Method
 
@@ -63,7 +63,7 @@ Type TZMQ_Socket
 	End Rem
 	Method Bind(address:String)
 		Local rc:Int = zmq_bind(Self.socket, address)
-		If rc = -1 Then Throw New TZMQ_Exception
+		If rc = -1 Then Throw New TZMQ_Socket_Exception
 	End Method
 
 	Rem
@@ -72,7 +72,7 @@ Type TZMQ_Socket
 	End Rem
 	Method Connect(address:String)
 		Local rc:Int = zmq_connect(Self.socket, address)
-		If rc = -1 Then Throw New TZMQ_Exception
+		If rc = -1 Then Throw New TZMQ_Socket_Exception
 	End Method
 	
 	Rem
@@ -81,7 +81,7 @@ Type TZMQ_Socket
 	End Rem
 	Method Close()
 		Local rc:Int = zmq_close(Self.socket)
-		If rc = -1 Then Throw New TZMQ_Exception
+		If rc = -1 Then Throw New TZMQ_Socket_Exception
 	End Method
 	
 	Rem
@@ -90,7 +90,7 @@ Type TZMQ_Socket
 	End Rem
 	Method SetSockOpt(socket_option:Int, value:String)
 		Local rc:Int = zmq_setsockopt(Self.socket, socket_option, value, value.Length)
-		If rc = -1 Then Throw New TZMQ_Exception
+		If rc = -1 Then Throw New TZMQ_Socket_Exception
 	End Method
 
 	Rem
