@@ -37,6 +37,7 @@ but have been ported to BlitzMax.</p>
 	<li><a href="../examples/hwclient.bmx">hwsclient.bmx</a> - Hello World client</li>
 	<li><a href="../examples/wuserver.bmx">wuserver.bmx</a> - Weather Update server</li>
 	<li><a href="../examples/wuclient.bmx">wuclient.bmx</a> - Weather Update client</li>
+	<li><a href="../examples/msreader.bmx">msreader.bmx</a> - Multiple socket reader</li>
 </ul>
 
 <h2>Test Suite</h2>
