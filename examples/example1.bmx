@@ -19,7 +19,7 @@ Function MyPublisherThread:Object(data:Object)
 	socket.Bind(addr)
 	Repeat
 		'Manually create a TZMQ_Message
-		Local msg:TZMQ_Message = New TZMQ_Message.Create("Hello world! " + Rnd(100))
+		Local msg:TZMQ_Message = New TZMQ_Message.CreateFromString("Hello world! " + Rnd(100))
 		'Send the message to any SUBSCRIBERs
 		socket.Send(msg)
 		'Free the message
