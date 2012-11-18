@@ -54,6 +54,8 @@ Const ZMQ_RECONNECT_IVL:Int = 18
 Const ZMQ_BACKLOG:Int = 19
 Const ZMQ_RECOVERY_IVL_MSEC:Int = 20   'opt. recovery time, reconcile in 3.x
 Const ZMQ_RECONNECT_IVL_MAX:Int = 21
+Const ZMQ_RCVTIMEO:Int = 27
+Const ZMQ_SNDTIMEO:Int = 28
 
 'Send/recv options
 Const ZMQ_NOBLOCK:Int = 1
