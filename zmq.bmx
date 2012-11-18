@@ -37,6 +37,8 @@ ModuleInfo "ZeroMQ: <a href='http://www.zeromq.org'>http://www.zeromq.org</a>"
 ModuleInfo "ZeroMQ License: LGPL (see contents of ./zeromq)"
 ModuleInfo "Git repository: <a href='https://github.com/Htbaa/zmq.mod/'>https://github.com/Htbaa/zmq.mod/</a>"
 ModuleInfo "Issues: <a href='https://github.com/Htbaa/zmq.mod/issues'>https://github.com/Htbaa/zmq.mod/issues</a>"
+ModuleInfo "ZeroMQ Windows binaries: <a href='http://www.zeromq.org/distro:microsoft-windows'>http://www.zeromq.org/distro:microsoft-windows</a>"
+ModuleInfo "History: Updated to ZMQ 2.2.0"
 ModuleInfo "History: Updated example1 to reflect API changes"
 ModuleInfo "History: Improved test coverage"
 ModuleInfo "History: 0.03"
@@ -56,7 +58,7 @@ ModuleInfo "History: First release of htbaapub.zmq using ZMQ 2.1.11. No support 
 ?Linux
 	Import "-lzmq"
 ?Win32
-	Import "zeromq/lib/libzmq.dll.a"
+	Import "zeromq/lib/libzmq-v100-mt.lib"
 ?
 
 Import "glue.c"
