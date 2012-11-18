@@ -9,7 +9,9 @@ Import htbaapub.zmq
 Local context:TZMQ_Context = New TZMQ_Context.Create(1)
 Local publisher:TZMQ_Socket = context.Socket(ZMQ_PUB)
 publisher.Bind("tcp://127.0.0.1:6000")
+?Not Win32
 publisher.Bind("ipc://weather.ipc")
+?
 
 Repeat
 	Local zipcode:Int = Rand(1, 100000)
