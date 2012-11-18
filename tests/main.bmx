@@ -17,7 +17,7 @@ Type TZMQ_Test Extends TTest
 		assertTrue(parts.Length = 3, "Version string contains 3 parts")
 	End Method
 	
-	'Make sure recreating an existing context
+	'Make sure recreating an existing context isn't possible
 	Method ContextReCreate() {test}
 		Local ct:TZMQ_Context = New TZMQ_Context.Create()
 		Try
