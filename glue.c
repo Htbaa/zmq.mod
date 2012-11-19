@@ -46,3 +46,16 @@ zmq_msg_t * bmx_zmq_new_message(const char *string) {
 	memcpy(zmq_msg_data(msg), string, length);
 	return msg;
 }
+
+zmq_pollitem_t * bmx_zmq_pollitem_t(void *socket, short events) {
+	zmq_pollitem_t *item = { socket, 0, events, 0};
+	return item;
+}
+
+short bmx_zmq_pollitem_t_get_events(zmq_pollitem_t *item) {
+	return item.events;
+}
+
+short bmx_zmq_pollitem_t_get_revents(zmq_pollitem_t *item) {
+	return item.revents;
+}

@@ -70,6 +70,7 @@ Include "constants.bmx"
 Include "context.bmx"
 Include "socket.bmx"
 Include "message.bmx"
+Include "poller.bmx"
 
 'Glue/Helper functions
 Extern "C"
@@ -90,6 +91,11 @@ Extern "C"
 		bbdoc: Alias for free(), for cleaning up data structures
 	End Rem
 	Function bmx_zmq_free(msg:Byte Ptr)
+	
+	Function bmx_zmq_pollitem_t:Byte Ptr(socket:Byte Ptr, events:Byte)
+	
+	Function bmx_zmq_pollitem_t_get_events:Short(item:Byte Ptr)
+	Function bmx_zmq_pollitem_t_get_revents:Short(item:Byte Ptr)
 End Extern
 
 'ZeroMQ functions
