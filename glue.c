@@ -53,9 +53,9 @@ zmq_pollitem_t * bmx_zmq_pollitem_t(void *socket, short events) {
 }
 
 short bmx_zmq_pollitem_t_get_events(zmq_pollitem_t *item) {
-	return item.events;
+	return item->events;
 }
 
 short bmx_zmq_pollitem_t_get_revents(zmq_pollitem_t *item) {
-	return item.revents;
+	return item->revents;
 }
