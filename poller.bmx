@@ -59,7 +59,7 @@ Type TZMQ_Poller
 		Self._namedEvents.Clear()
 	End Method
 
-	Method _RawPollItems:TList()
+	Method _GetRawPollItems:TList()
 		If Self._rawPollItems.Count() = 0
 			For Local item:TZMQ_Poller_Item = EachIn Self._pollItems
 				Self._rawPollItems.AddLast(item._GetRawPollItem())
