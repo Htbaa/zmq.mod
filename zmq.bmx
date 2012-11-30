@@ -64,6 +64,7 @@ ModuleInfo "History: First release of htbaapub.zmq using ZMQ 2.1.11. No support 
 	Import "zeromq/lib/libzmq-v100-mt.lib"
 ?
 
+Import brl.linkedlist
 Import "glue.c"
 Include "exception.bmx"
 Include "constants.bmx"
